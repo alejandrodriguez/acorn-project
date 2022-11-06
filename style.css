@@ -4,6 +4,7 @@
     --red: #8f023d;
     --gold: #a97f4f;
     --black: #3a3a3a;
+    scroll-behavior: smooth;
 }
 
 /* CSS Reset */
@@ -18,8 +19,67 @@ body {
     overflow-x: hidden;
 }
 
-ul {
+li {
     list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+    background-color: var(--red);
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: display-nav 1s 1 forwards;
+    color: white;
+    gap: 20px;
+}
+
+/* NavBar Animation */
+@keyframes display-nav {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+nav > li {
+    text-transform: uppercase;
+}
+
+.logo {
+    height: 35px;
+}
+
+/* Dark Mode Switch */
+.dark-mode-wrapper label {
+    cursor: pointer;
+}
+
+.dark-mode-btn {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.dark-mode-wrapper img {
+    width: 35px;
+    /* Make SVG's white */
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(243deg)
+        brightness(110%) contrast(101%);
 }
 
 /* Image Carousel */
@@ -28,14 +88,17 @@ ul {
     width: 80%;
     margin: 0 auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
 }
 
 .carousel-slides-container {
     position: relative;
     background-color: yellow; /* TODO delete */
-    width: 100%;
-    height: 100%;
     transition: transform 500ms ease-in-out;
+    flex: 1;
 }
 
 .carousel-slide {
@@ -96,24 +159,32 @@ ul {
     cursor: pointer;
 }
 
+.dot-indicator:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .dot-indicator.current-dot {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Handle elements sliding in with intersection observers */
 
-.fade-from-left {
+.fade-in {
+    opacity: 1;
+    font-size: 50px; /* TODO delete */
+}
+
+.from-left {
     transform: translateX(-50%);
 }
 
-.fade-from-right {
+.from-right {
     transform: translateX(50%);
 }
 
 .from-left,
 .from-right {
-    opacity: 0;
-    transition: transform 150ms ease-in, opacity 100ms ease-in;
+    transition: transform 1s ease-out, opacity 100ms ease-in;
 }
 
 .from-left.appear,

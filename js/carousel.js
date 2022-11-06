@@ -1,10 +1,10 @@
-// Grab relevent HTML elements
+// Grab relevant HTML elements
 const slidesContainer = document.querySelector(".carousel-slides-container");
-const slides = document.querySelectorAll(".carousel-slide");
+const slides = [...document.querySelectorAll(".carousel-slide")];
 const nextBtn = document.querySelector(".next-btn");
 const prevBtn = document.querySelector(".prev-btn");
 const dotsNav = document.querySelector(".dots-nav");
-const dots = document.querySelectorAll(".dot-indicator");
+const dots = [...document.querySelectorAll(".dot-indicator")];
 
 // Arrange slides next to each other
 const slideWidth = slides[0].getBoundingClientRect().width;
@@ -13,58 +13,54 @@ slides.forEach((slide, index) => {
 });
 
 // Handle Changing Slides
-function changeSlide(direction, userEvent = true) {
+function changeSlide(targetSlide, userEvent = true) {
     if (userEvent) {
         clearInterval(autoPlay);
     }
     const currentSlide = document.querySelector(".current-slide");
-    let newSlide;
     const currentDot = document.querySelector(".current-dot");
-    let newDot;
-    if (direction === "next") {
-        newSlide = currentSlide.nextElementSibling
-            ? currentSlide.nextElementSibling
-            : slides[0];
-        newDot = currentDot.nextElementSibling
-            ? currentDot.nextElementSibling
-            : dots[0];
-    } else if (direction === "previous") {
-        newSlide = currentSlide.previousElementSibling
-            ? currentSlide.previousElementSibling
-            : slides[slides.length - 1];
-        newDot = currentDot.previousElementSibling
-            ? currentDot.previousElementSibling
-            : dots[dots.length - 1];
-    } else {
-        throw new Error(
-            'First paramater must indicate direction with either "next" or "previous".'
-        );
-    }
-    const newPosition = newSlide.style.left;
+    const targetDot = dots[slides.findIndex(slide => slide === targetSlide)];
+    const newPosition = targetSlide.style.left;
     slidesContainer.style.transform = `translateX(-${newPosition})`;
     currentSlide.classList.remove("current-slide");
-    newSlide.classList.add("current-slide");
+    targetSlide.classList.add("current-slide");
     currentDot.classList.remove("current-dot");
-    newDot.classList.add("current-dot");
+    targetDot.classList.add("current-dot");
 }
 
 // Set up autoplay // TODO lookup standard name for autoplay
 const autoPlay = setInterval(() => {
-    changeSlide("next", false);
+    const currentSlide = document.querySelector(".current-slide");
+    const targetSlide = currentSlide.nextElementSibling
+        ? currentSlide.nextElementSibling
+        : slides[0];
+    changeSlide(targetSlide, false);
 }, 5000);
 
 // On nextBtn press, move slides to the right and update dotsNav
 nextBtn.addEventListener("click", () => {
-    changeSlide("next");
+    const currentSlide = document.querySelector(".current-slide");
+    const targetSlide = currentSlide.nextElementSibling
+        ? currentSlide.nextElementSibling
+        : slides[0];
+    changeSlide(targetSlide);
 });
 
 // On prevBtn press, move slides to the left and update dotsNav
 prevBtn.addEventListener("click", () => {
-    changeSlide("previous");
+    const currentSlide = document.querySelector(".current-slide");
+    const targetSlide = currentSlide.previousElementSibling
+        ? currentSlide.previousElementSibling
+        : slides[slides.length - 1];
+    changeSlide(targetSlide);
 });
 
 // On dot press, navigate to appropriate slide
 dotsNav.addEventListener("click", e => {
     const targetDot = e.target;
-    console.log(targetDot.node); // TODO look up how to check node type
+    if (targetDot.nodeName !== "BUTTON") {
+        return;
+    }
+    const targetSlide = slides[dots.findIndex(dot => dot === targetDot)];
+    changeSlide(targetSlide);
 });
