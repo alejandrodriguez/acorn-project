@@ -1,0 +1,6 @@
+Features to Add
+
+1. Image Carousel
+2. Sliding In Elements
+3. Auto Scroll Navigation
+4. Dark Mode

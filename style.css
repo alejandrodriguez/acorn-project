@@ -1,0 +1,123 @@
+/* Declare CSS Variables */
+
+:root {
+    --red: #8f023d;
+    --gold: #a97f4f;
+    --black: #3a3a3a;
+}
+
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Image Carousel */
+.carousel {
+    height: 600px;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-slides-container {
+    position: relative;
+    background-color: yellow; /* TODO delete */
+    width: 100%;
+    height: 100%;
+    transition: transform 500ms ease-in-out;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0.5;
+    transition: opacity 50ms;
+}
+
+.carousel-btn:hover {
+    opacity: 0.75;
+    color: white; /* TODO change color of svgs imported through img tag */
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.carousel-btn img {
+    width: 120px;
+}
+
+.dots-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.dot-indicator {
+    width: 10px;
+    height: 10px;
+    margin: 10px 0;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.35);
+    border: none;
+    cursor: pointer;
+}
+
+.dot-indicator.current-dot {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Handle elements sliding in with intersection observers */
+
+.fade-from-left {
+    transform: translateX(-50%);
+}
+
+.fade-from-right {
+    transform: translateX(50%);
+}
+
+.from-left,
+.from-right {
+    opacity: 0;
+    transition: transform 150ms ease-in, opacity 100ms ease-in;
+}
+
+.from-left.appear,
+.from-right.appear {
+    transform: translateX(0);
+    opacity: 1;
+}
