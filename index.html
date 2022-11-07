@@ -1,78 +1,163 @@
 <!DOCTYPE html>
-<!-- TODO fill in alt attributes -->
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style.css" />
         <script src="js/dark-mode.js" type="module" defer></script>
         <script src="js/carousel.js" type="module" defer></script>
         <script src="js/fade-in.js" type="module" defer></script>
-        <title>Document</title>
+        <script src="js/tab-select.js" type="module" defer></script>
+        <title>Acorn Stairlifts Concept - Alejandro Rodriguez</title>
     </head>
     <body>
         <nav>
-            <li><img class="logo" src="img/logo-white.webp" alt="" /></li>
+            <li><a href="#home"><img class="logo" src="img/logo-white.webp" alt="A logo depicting an acorn." /></a></li>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contac</a>t</li>
+            <li><a href="#contact">Contact</a></li>
             <li class="dark-mode-wrapper">
-                <label for="dark-mode-btn"
-                    ><img src="img/icons/moon.svg" alt=""
-                /></label>
+                <label for="dark-mode-btn">
+                    <img src="img/icons/moon.svg" alt="A crescent moon"/>
+                </label>
                 <button id="dark-mode-btn" class="dark-mode-btn">
                     <img
                         class="toggle-img"
                         src="img/icons/toggle-switch-off.svg"
-                        alt=""
+                        alt="A toggle switch turned off"
                     />
                 </button>
             </li>
         </nav>
-        <div class="carousel">
-            <button class="carousel-btn prev-btn">
-                <img src="img/icons/arrow-left.svg" alt="" />
-            </button>
-            <ul class="carousel-slides-container">
-                <li class="carousel-slide current-slide">
-                    <img src="img/stairlift.jpg" alt="" />
-                </li>
-                <li class="carousel-slide">
-                    <img src="img/outdoor-stairlift.webp" alt="" />
-                </li>
-                <li class="carousel-slide">
-                    <img src="img/stock-photo-harold.jpg" alt="" />
-                </li>
-            </ul>
-            <button class="carousel-btn next-btn">
-                <img src="img/icons/arrow-right.svg" alt="" />
-            </button>
-            <div class="dots-nav">
-                <button class="dot-indicator current-dot"></button>
-                <button class="dot-indicator"></button>
-                <button class="dot-indicator"></button>
-            </div>
-        </div>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
-        <p class="fade-in from-left">test</p>
+        <main>
+            <section id="home">
+                <div class="carousel">
+                    <button class="carousel-btn prev-btn">
+                        <img src="img/icons/arrow-left.svg" alt="An arrow pointing left." />
+                    </button>
+                    <ul class="carousel-slides-container">
+                        <li class="carousel-slide current-slide">
+                            <img src="img/stairlift.jpg" alt="A stairlift at the bottom of the stairs." style="object-position: top;"/>
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="img/woman-in-stairlift.jpg" alt="A woman rides a stairlift." style="object-position: top;"/>
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="img/woman-in-stairlift-2.jpg" alt="A woman poses for a picture seated on a stairlift."/>
+                        </li>
+                    </ul>
+                    <button class="carousel-btn next-btn">
+                        <img src="img/icons/arrow-right.svg" alt="An arrow pointing right." />
+                    </button>
+                    <div class="dots-nav">
+                        <button class="dot-indicator current-dot"></button>
+                        <button class="dot-indicator"></button>
+                        <button class="dot-indicator"></button>
+                    </div>
+                </div>
+            </section>
+            <section id="about">
+                <h2>About</h2>
+                <div class="information-card fade-in from-left">
+                    <div><img src="img/stock-photo-harold.jpg" alt="A man sips coffee at his desk while using his laptop." /></div>
+                    <div>
+                        <h2>Who We Are</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Ratione iusto officia earum. Quasi neque et iste facilis
+                            voluptatem error vitae culpa aut, illo distinctio nisi
+                            incidunt amet doloribus aperiam nihil itaque nobis quam
+                            voluptate voluptatum quae non recusandae nulla.
+                        </p>
+                    </div>
+                </div>
+                <div class="information-card fade-in from-right">
+                    <div>
+                        <h2>Our Models</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Molestiae impedit nostrum doloribus explicabo, aut corrupti
+                            deleniti libero quo dolores soluta.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="tab-select">
+                            <button data-modelarrindex="1">
+                                <img class="icon" src="img/icons/stairs.svg" alt="An icon depicting stairs." />
+                                <p>Straight</p>
+                            </button>
+                            <button data-modelarrindex="2">
+                                <!-- This icon is not indicative or stairlift type and would be replaced -->
+                                <img
+                                    class="icon"
+                                    src="img/icons/stairs-box.svg"
+                                    alt="An icon depicting stairs with rounded edges"
+                                />
+                                <p>Curved</p>
+                            </button>
+                            <button data-modelarrindex="3">
+                                <!-- This icon is not indicative or stairlift type and would be replaced -->
+                                <img
+                                    class="icon"
+                                    src="img/icons/stairs-up.svg"
+                                    alt="An icon depicting stairs with an arrow pointing upward"
+                                />
+                                <p>Outdoor</p>
+                            </button>
+                        </div>
+                        <div class="model-container">
+                            <div class="model-info">
+                                <h3>Find the right model to fit your needs.</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Rerum accusantium aliquam, mollitia dolorem
+                                    dicta molestias nulla eaque quam minus temporibus.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="information-card fade-in from-left class="quote"">
+                    <div>
+                        <img src="img/icons/quote-open.svg" class="quotation-mark">
+                        <p>
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Harum, vel laborum sapiente repellendus et beatae officiis
+                            tempore quo fugit magnam! Maxime soluta neque eaque
+                            blanditiis!"
+                        </p>
+                    </div>
+                    <div>
+                        <h2>What People Are Saying</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Fugiat, dolorum at fugit libero repudiandae officiis veniam
+                            quas. Iure, dolorum beatae tenetur sapiente qui
+                            reprehenderit commodi?
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact">
+                <h2 id="contact">Contact Us</h2>
+                <form class="contact-form">
+                    <div class="input-wrapper">
+                        <label for="name">Name:</label>
+                        <input type="text" placeholder="John Doe" id="name">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" placeholder="example@website.com">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="message">Your Message:</label>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Tell us your thoughts..."></textarea>
+                    </div>
+                    <button>Submit</button>
+                </form>
+            </section>
+        </main>
     </body>
 </html>

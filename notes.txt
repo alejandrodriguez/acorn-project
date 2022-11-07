@@ -1,8 +1,0 @@
-Features to Add
-
-1. Image Carousel
-2. Sliding In Elements
-3. Auto Scroll Navigation
-4. Dark Mode
-5. Change Scroll Bar
-6. Add Favicon
